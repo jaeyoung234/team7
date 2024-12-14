@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P11</title>
+    <style>
+      .apt {
+        width: 30%;
+      }
+      .input-container {
+        display: flex;
+        align-items: center;
+      }
+      .input-container input {
+        margin-right: 10px;
+      }
+    </style>
+    <script>
+      function checkAnswer(questionNumber) {
+        const answers = {
+          1: "a빌라",
+          2: "b빌라",
+          3: "c빌라",
+          4: "b빌라",
+        };
+
+        const userAnswer = document
+          .getElementById(`answer${questionNumber}`)
+          .value.toLowerCase();
+        const resultMessage = document.getElementById(
+          `result${questionNumber}`
+        );
+
+        if (userAnswer === answers[questionNumber].toLowerCase()) {
+          resultMessage.textContent = "정답입니다!";
+        } else {
+          resultMessage.textContent = "오답입니다.";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <p>집 비교하기</p>
+    <p>
+      혜자 씨는 아들집 근처로 이사하려고 합니다. 다음의 집들을 비교해보며 문제를
+      풀어보세요.(1~4)
+    </p>
+    <img class="apt" src="1.png" />
+    <img class="apt" src="2.png" />
+    <img class="apt" src="3.png" />
+
+    <pre>
+1. 아들집과 지하철역이 가장 가까운 곳을 우선순위로 하여 이사하려고 합니다. 어느 집이 가장 적합할까요?
+                                                                 
+      <div class="input-container">
+        <input type="text" id="answer1">
+        <button onclick="checkAnswer(1)">확인</button>
+      </div>
+      <span id="result1"></span>
+    </pre>
+    <pre>
+2. 애완견을 기르고 있는 동생과 내년부터 같이 살 계획입니다. 어느집이 가장 적합할까요? 
+                                                                 
+      <div class="input-container">
+        <input type="text" id="answer2">
+        <button onclick="checkAnswer(2)">확인</button>
+      </div>
+      <span id="result2"></span>
+    </pre>
+    <pre>
+3. 예산이 1억원이 있고 대출로 4천만원을 받을 수 있습니다. 전세로 살 수 있는 집이 어디일까요?
+                                                                 
+      <div class="input-container">
+        <input type="text" id="answer3">
+        <button onclick="checkAnswer(3)">확인</button>
+      </div>
+      <span id="result3"></span>
+    </pre>
+    <pre>
+4. 월세로 계약하려고 합니다. 보증금 상관없이 월세가 제일 낮은 집은 어디 일까요?
+                                                                 
+      <div class="input-container">
+        <input type="text" id="answer4">
+        <button onclick="checkAnswer(4)">확인</button>
+      </div>
+      <span id="result4"></span>
+    </pre>
+  </body>
+</html>
