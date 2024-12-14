@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 하루</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+      h1 {
+        text-align: left;
+        color: #4caf50;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: left;
+      }
+      tr {
+        background-color: #f1f8f4;
+      }
+      td {
+        padding: 15px;
+      }
+      .time {
+        width: 30%;
+      }
+      .activity {
+        width: 70%;
+      }
+      .footer {
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #666;
+      }
+      .center {
+        text-align: center;
+      }
+      @media (max-width: 600px) {
+        .time {
+          width: 40%;
+        }
+        .activity {
+          width: 60%;
+        }
+        td {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>일기</h1>
+        <div style = "float: right; justify-content: center; display: flex; gap: 10px;">
+          <span>
+            <input type="text" style="background-color: #ffffff; width: 50px;">년
+            <input type="text" style="background-color: #ffffff; width: 20px;">월
+            <input type="text" style="background-color: #ffffff; width: 20px;">일
+            <input type="text" style="background-color: #ffffff; width: 20px;">요일
+            &nbsp;&nbsp;&nbsp;날씨</span>
+          <img src="weather_1.png" alt="맑음" class="weather-icon" data-weather="맑음" style="width: 20px;">
+          <img src="weather_2.png" alt="흐림" class="weather-icon" data-weather="흐림" style="width: 20px;">
+          <img src="weather_3.png" alt="비" class="weather-icon" data-weather="비" style="width: 20px;">
+          <img src="weather_4.png" alt="눈" class="weather-icon" data-weather="눈" style="width: 20px;">
+        </div>
+        <p id="selected-weather" style="text-align: right; margin-top: 10px; font-size: 0.9em; color: #555;"></p>
+        <style>
+          .weather-icon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            transition: border 0.2s ease, transform 0.2s ease;
+            box-sizing: border-box;
+          }
+          .weather-icon.selected {
+            border: 2px solid #4caf50;
+
+        </style>
+
+        <script>
+
+          const weatherIcons = document.querySelectorAll('.weather-icon');
+          const selectedWeatherText = document.getElementById('selected-weather');
+        
+          weatherIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+             
+              weatherIcons.forEach(icon => icon.style.border = '');
+        
+              icon.style.border = '2px solid #4caf50';
+
+            });
+          });
+        </script>
+      <table>
+        <tr>
+          <td colspan="4" class="important center" id="today">나의 하루</td>
+        </tr>
+        <tr>
+          <td>방문한 장소&nbsp;<input type="text" style="background-color: #f1f8f4; width: 100px;"></td>
+          <td colspan="3">오늘 만난 사람&nbsp;<input type="text" style="background-color: #f1f8f4; width: 100px;"></td>
+        </tr>
+        <tr>
+          <td>구입한 물건&nbsp;<input type="text" style="background-color: #f1f8f4; width: 100px;"></td>
+          <td colspan="3">지출 금액&nbsp;<input type="text" style="background-color: #f1f8f4; width: 100px;"></td>
+        </tr>
+        <tr>
+          <td colspan="5">오늘의 뉴스&nbsp;<input type="text" style="background-color: #f1f8f4; width: 500px;"></td>
+        </tr>
+        <tr>
+          <td class="time">시각</td>
+          <td colspan="4" class="activity center" id="today">중요한 일</td>
+        </tr>
+        <tr>
+          <td class="time">오전 5시 - 8시</td>
+          <td colspan="4" class="activity">일어나서 한 일&nbsp;<input type="text" style="background-color: #f1f8f4; width: 100px;"></td>
+        </tr>
+        <tr>
+          <td class="time">오전 8시 - 12시</td>
+          <td colspan="4" class="activity">아침식사 후에 한 일&nbsp;<input type="text" style="background-color: #f1f8f4; width: 100px;"></td>
+        </tr>
+        <tr>
+          <td class="time">오후 12시 - 5시</td>
+          <td colspan="4" class="activity">오후에 한 일&nbsp;<input type="text" style="background-color: #f1f8f4; width: 100px;"></td>
+        </tr>
+        <tr>
+          <td class="time">오후 5시 - 10시</td>
+          <td colspan="4" class="activity">저녁식사 후에 한 일&nbsp;<input type="text" style="background-color: #f1f8f4; width: 100px;"></td>
+        </tr>
+      </table>
+      <div class="footer">
+        <table id="second">
+          <tr>
+            <td>내일 계획&nbsp;<input type="text" style="background-color: #f1f8f4; width: 500px;"></td>
+          </tr>
+        </table>
+        <table id="second">
+          <tr>
+            <td class="time">🧠 뇌 건강을 위한 생활습관</td>
+            <td colspan="4" class="activity">
+              <pre>
+✅ 대뇌활동을 열심히 합시다.
+독서나 퍼즐 등과 같은 두뇌 활동은 뇌를 자극하여 뇌의 구조와 기능에 좋은 영향을 미칩니다.
+              </pre>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
